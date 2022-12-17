@@ -1,0 +1,23 @@
+{
+  "name": "generate-team-profile",
+  "version": "1.0.0",
+  "description": "generate team profile use command line",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mabchhan/Generate-Team-Profile.git"
+  },
+  "author": "Mab Chhan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mabchhan/Generate-Team-Profile/issues"
+  },
+  "homepage": "https://github.com/mabchhan/Generate-Team-Profile#readme"
+}

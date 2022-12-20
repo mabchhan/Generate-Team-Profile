@@ -93,3 +93,71 @@ const questions = {
     },
   ],
 };
+
+const chooseEmployeeType = [
+  {
+    type: "list",
+    name: "employeeType",
+    message: "Please choose type of employee:",
+    choices: ["Manager", "Engineer", "Intern"],
+  },
+];
+
+// function writeToFile(fileName, data) {
+//   fs.writeFile(fileName, data, (err) =>
+//     err ? console.error(err) : console.log("success created file")
+//   );
+// }
+
+//  Create a function to get employee information
+function generateTeam() {
+  // ask for type of employee
+  inquirer.prompt(chooseEmployeeType).then((answers) => {
+    // if type of employee is Manager
+    if (answers.employeeType === "Manager") {
+      inquirer.prompt(questions.Manager).then((response) => {
+        const manager = new Manager(
+          response.name,
+          response.id,
+          response.email,
+          response.officeNumber
+        );
+        console.log(manager);
+        if (response.addNew === "Yes") {
+          generateTeam();
+        }
+      });
+      // if type of employee is Engineer
+    } else if (answers.employeeType === "Engineer") {
+      inquirer.prompt(questions.Engineer).then((response) => {
+        const engineer = new Engineer(
+          response.name,
+          response.id,
+          response.email,
+          response.gitHub
+        );
+        console.log(engineer);
+        if (response.addNew === "Yes") {
+          generateTeam();
+        }
+      });
+      // if type of employee is Intern
+    } else if (answers.employeeType === "Intern") {
+      inquirer.prompt(questions.Intern).then((response) => {
+        const intern = new Manager(
+          response.name,
+          response.id,
+          response.email,
+          response.school
+        );
+        console.log(intern);
+        if (response.addNew === "Yes") {
+          generateTeam();
+        }
+      });
+    }
+  });
+}
+
+// Function call to initialize app
+generateTeam();

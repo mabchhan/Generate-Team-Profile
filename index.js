@@ -123,6 +123,7 @@ function generateTeam() {
           response.officeNumber
         );
         console.log(manager);
+        // ask for add new employee or not
         if (response.addNew === "Yes") {
           generateTeam();
         }
@@ -137,6 +138,8 @@ function generateTeam() {
           response.gitHub
         );
         console.log(engineer);
+
+        // ask for add new employee or not
         if (response.addNew === "Yes") {
           generateTeam();
         }
@@ -151,6 +154,8 @@ function generateTeam() {
           response.school
         );
         console.log(intern);
+        // ask for add new employee or not
+
         if (response.addNew === "Yes") {
           generateTeam();
         }

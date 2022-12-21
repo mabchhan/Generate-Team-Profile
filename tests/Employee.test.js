@@ -17,7 +17,7 @@ describe("Employee Object", () => {
 
   // employee Id
   it("should return employee ID by getId", () => {
-    const id = "01";
+    const id = 1;
     const employeeObj = new Employee("Mab Chhan", id);
     expect(employeeObj.getId()).toEqual(id);
   });
@@ -25,13 +25,13 @@ describe("Employee Object", () => {
   // employee Email
   it("should return employee Email by getEmail()", () => {
     const email = "chhan@gmail.com";
-    const employeeObj = new Employee("Mab Chhan", "01", email);
+    const employeeObj = new Employee("Mab Chhan", 1, email);
     expect(employeeObj.getEmail()).toEqual(email);
   });
 
   // employee role
   it('should return "Employee" getRole()', () => {
-    const employeeObj = new Employee("Mab Chhan", "01", "chhan@gmail.com");
+    const employeeObj = new Employee("Mab Chhan", 1, "chhan@gmail.com");
     expect(employeeObj.getRole()).toEqual("Employee");
   });
 });

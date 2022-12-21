@@ -4,7 +4,7 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-
+const render = require("./src/generateHTML");
 const questions = {
   Manager: [
     {
@@ -108,9 +108,10 @@ const chooseEmployeeType = [
 //     err ? console.error(err) : console.log("success created file")
 //   );
 // }
+const employeeArray = [];
 
 //  Create a function to get employee information
-function generateTeam() {
+function addNewEmployee() {
   // ask for type of employee
   inquirer.prompt(chooseEmployeeType).then((answers) => {
     // if type of employee is Manager
@@ -122,10 +123,13 @@ function generateTeam() {
           response.email,
           response.officeNumber
         );
-        console.log(manager);
+        employeeArray.push(manager);
+
         // ask for add new employee or not
         if (response.addNew === "Yes") {
-          generateTeam();
+          addNewEmployee();
+        } else {
+          generate();
         }
       });
       // if type of employee is Engineer
@@ -137,11 +141,13 @@ function generateTeam() {
           response.email,
           response.gitHub
         );
-        console.log(engineer);
+        employeeArray.push(engineer);
 
         // ask for add new employee or not
         if (response.addNew === "Yes") {
-          generateTeam();
+          addNewEmployee();
+        } else {
+          generate();
         }
       });
       // if type of employee is Intern
@@ -153,16 +159,25 @@ function generateTeam() {
           response.email,
           response.school
         );
-        console.log(intern);
+        employeeArray.push(intern);
         // ask for add new employee or not
 
         if (response.addNew === "Yes") {
-          generateTeam();
+          addNewEmployee();
+        } else {
+          generate();
         }
       });
     }
   });
 }
+// call to initialize app
+addNewEmployee();
 
-// Function call to initialize app
-generateTeam();
+const generate = () => {
+  fs.writeFile("./dist/index.html", render(employeeArray), (err) =>
+    err
+      ? console.error(err)
+      : console.log("Your team profile successfully created")
+  );
+};

@@ -3,7 +3,7 @@ const managerHTML = (manager) => `
 <div class="w-48 max-w-sm bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
           <div class="bg-blue-500 text-center text-white text-xl">
             <h2>${manager.name}</h2>
-            <h3>manager</h3>
+            <h3>Manager</h3>
           </div>
           <div class="text-black p-4">
             <p class="id">ID: ${manager.id}</p>
@@ -66,3 +66,29 @@ const htmlPage = (employee) => `
   </body>
 </html>
 `;
+
+const render = (arrayOfEmployee) => {
+  const htmlCards = [];
+  for (let i = 0; i < arrayOfEmployee.length; i++) {
+    let employee = arrayOfEmployee[i];
+    const role = employee.getRole();
+    if (role === "Manager") {
+      const managerCard = managerHTML(employee);
+      htmlCards.push(managerCard);
+    }
+
+    if (role === "Engineer") {
+      const engineerCard = engineerHTML(employee);
+      htmlCards.push(engineerCard);
+    }
+
+    if (role === "Intern") {
+      const internCard = internHTML(employee);
+      htmlCards.push(internCard);
+    }
+  }
+  const employeeCards = htmlCards.join("");
+  return htmlPage(employeeCards);
+};
+
+module.exports = render;

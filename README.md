@@ -8,7 +8,7 @@ This application use inquirer to get informatin user input and generates HTML pa
 
 ## Installation
 
-1. Node.js is required
+1. Node.js
 2. npm inquirer
 3. npm jest
 
@@ -16,7 +16,7 @@ This application use inquirer to get informatin user input and generates HTML pa
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-This project licensed under MIT licensel
+This project licensed under MIT license
 
 ## Test
 

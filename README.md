@@ -26,4 +26,4 @@ For test run npm test .
 
 - Github : https://github.com/mabchhan/Generate-Team-Profile
 
-- Video :
+- Video : https://drive.google.com/file/d/1oqH_CxDdjIGNWW8o7WdbFy4GsHV93xAb/view?usp=share_link

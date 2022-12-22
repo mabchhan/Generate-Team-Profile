@@ -103,11 +103,6 @@ const chooseEmployeeType = [
   },
 ];
 
-// function writeToFile(fileName, data) {
-//   fs.writeFile(fileName, data, (err) =>
-//     err ? console.error(err) : console.log("success created file")
-//   );
-// }
 const employeeArray = [];
 
 //  Create a function to get employee information
